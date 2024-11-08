@@ -1,9 +1,11 @@
-import './App.css'
-import React from 'react'
+import Chpater4 from './summarize/Chapter4'
+import Chpater6 from './summarize/Chapter6'
 
 function App() {
-  console.log(React)
-   return React.createElement('div', { className: 'myClass' }, 'Hello World')
+   return (
+      // <Chpater4 />
+      <Chpater6 />
+   )
 }
 
 export default App
