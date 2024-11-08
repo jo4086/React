@@ -1,10 +1,13 @@
 # Reduce Toolkit
 
-원래라면 스토어는 1개만 작성하지만
-
-툴킷을 이용해 카운터슬라이스로 여러개 작성후 스토어에서 합침
-
+원래라면 스토어는 1개만 작성하지만\
+툴킷을 이용해 카운터슬라이스로 여러개 작성후 스토어에서 합침\
 슬라이스를 여러개를 가져다 붙일 수 있음.
+
+Toolkit은 특별한 키를 꼭 써야함
+
+-  createSlice : $\bf{\textsf{\color{navy}{name,\ initialState,\ reducers}}}$
+-  configureStore : $\bf{\textsf{\color{navy}{reducer}}}$
 
 <details>
 <summary>
@@ -12,7 +15,7 @@ $\bf{\textsf{\color{hotpink}store.js}}$
 
 </summary>
 
-```swift
+```
 import { configureStore } from '@reduxjs/toolkit'
 import counterSlice from './counterSlice' //counterSlice.reducer
 import userSlice from './userSlice/userSlice' //userSlice.reducer
