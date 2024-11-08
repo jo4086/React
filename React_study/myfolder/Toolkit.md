@@ -6,12 +6,14 @@
 
 슬라이스를 여러개를 가져다 붙일 수 있음.
 
+${\textsf{\color{green}Green}}$
+
 <details>
 <summary>
 <span style="font-size:16px;font-weight:600;font-style:italic;color: white;padding-left:5px;background-color: rgb(250, 104, 209);margin:0;line-height:30px;height:30px;width:100%;display:flex;">store.js</span>
 </summary>
 
-``` swift
+```swift
 import { configureStore } from '@reduxjs/toolkit'
 import counterSlice from './counterSlice' //counterSlice.reducer
 import userSlice from './userSlice/userSlice' //userSlice.reducer
