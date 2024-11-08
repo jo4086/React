@@ -6,12 +6,9 @@
 
 슬라이스를 여러개를 가져다 붙일 수 있음.
 
-${\textsf{\color{green}Green}}$
-
 <details>
 <summary>
-
-${\textsf{\color{hotpink}store.js}}$
+$\bf{\textsf{\color{hotpink}store.js}}$
 
 </summary>
 
