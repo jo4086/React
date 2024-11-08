@@ -10,7 +10,9 @@ ${\textsf{\color{green}Green}}$
 
 <details>
 <summary>
-<span style="font-size:16px;font-weight:600;font-style:italic;color: white;padding-left:5px;background-color: rgb(250, 104, 209);margin:0;line-height:30px;height:30px;width:100%;display:flex;">store.js</span>
+
+${\textsf{\color{hotpink}store.js}}$
+
 </summary>
 
 ```swift
