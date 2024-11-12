@@ -150,7 +150,9 @@ d
 
 <details>
 <summary>
-**_Banner.jsx_** [전체 코드 보기]
+[전체 코드 보기]
+
+**_Banner.jsx_**
 
 </summary>
 
@@ -212,3 +214,121 @@ export default Banner
 ### PosterSlider.jsx
 
 영화 슬라이더 컴포넌트로 [ **_Swiper 라이브러리_** ]를 사용하여 슬라이드 효과를 줌
+
+-  추가할 import\
+    import { Swiper, SwiperSlide } from 'swiper/react'\
+    import { Navigation } from 'swiper/modules'
+
+-  사용 라이브러리 목록
+
+   -  Navigation
+
+   -  Slides per view\
+      : slidesPerView={n} = 보여줄 슬라이더 갯수 n개\
+      : spaceBetween={x} = 슬라이더간 간격 'x'px
+
+---
+
+### tmdbApi.js
+
+연습용으로 만든 **tmdb 폴더**에는 〈**_tmdpApi.js_**〉 에 [**getMovies**]만 사용하였으나 tmdb_final 폴더에서는 더 많은 함수를 작성함
+
+endpoint : '/movie/popular' 부분에서 popular 부분을 교체시키기 위해서 작성
+
+---
+
+### moviesSlice.js
+
+**!! 주의점**
+
+1. createAsyncThunk의 async함수에서 매개변수로 여러개의 정보를 가져오기 위해서는 [객체] 또는 [배열] 형태여야함
+
+   **_async ({ category, page })_** : 여기서 {category, page}로 객체로 묶음
+
+   해당 코드 (1번)
+
+   ```
+   export const fetchmovies = createAsyncThunk('movies/fetchMovies', async ({ category, page }) => {
+      const response = await getMovies(category, page)
+      return response.data.results
+   })
+   ```
+
+**!! 필요한 기능**
+
+1. 페이지 아래에 더보기 버튼 클릭시 새로운 포스터 출력
+
+   해당 기능은 스프레드 문법으로 [**state.movies**] 뒤에 새로운 [**_action.payload_**]를 추가함
+
+   > ***
+   >
+   > 해당 코드 (2번)
+   >
+   > ```
+   > if (action.meta.arg.page === 1) {
+   >   state.movies = action.payload
+   > } else {
+   >
+   >   // 페이지가 2 이상일 때 기존데이터 + 새로운 데이터로 state 업데이트 (더보기 버튼)
+   >   state.movies = [...state.movies, ...action.payload]
+   > }
+   > ```
+   >
+   > ***
+
+<details>
+<summary>
+[전체 코드 보기]
+
+**_moviesSlice.jsx_**
+
+</summary>
+
+```
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { getMovies } from '../../api/tmdbApi'
+
+// --1번 코드--
+export const fetchmovies = createAsyncThunk('movies/fetchMovies', async ({ category, page }) => {
+   const response = await getMovies(category, page)
+   return response.data.results
+})
+
+const moviesSlice = createSlice({
+   name: 'movies',
+   initialState: {
+      loading: false, // 로딩 여부
+      movies: [], // 영화 정보
+      movieDetails: null, // 영화 상세 정보
+      movieCredtis: null, // 출연 배우 정보
+      error: null, // 에러 메세지
+   },
+   reducers: {},
+   extraReducers: (builder) => {
+      builder
+         .addCase(fetchMovies.pending, (state) => {
+            state.loading = true
+         })
+         .addCase(fehchMovies.fulfuilled, (state) => {
+            state.loading = false
+         })
+         .addCase(fetchMovies.rejected, (state, action) => {
+            state.loading = false
+
+            // --2번 코드--
+
+            // 페이지가 1일 때
+            if (action.meta.arg.page === 1) {
+               state.movies = action.payload
+            } else {
+               // 페이지가 2 이상일 때 기존데이터 + 새로운 데이터로 state 업데이트 (더보기 버튼)
+               state.movies = [...state.movies, ...action.payload]
+            }
+         })
+   },
+})
+
+export default moviesSlice
+```
+
+</details>
