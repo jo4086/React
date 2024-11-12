@@ -7,7 +7,39 @@
 
 -  라이브러리 설치
 -  index.js ▶ [BrowserRouter] import하고 App.js 감싸기
--  ## 폴더 구조 작성하기
+
+-  폴더 구조 작성하기\
+   **_<Folder ~ file>_**
+   -  **styles**
+      -  common.css : pages 기본 css
+      -  StyledComponents.js : pages 컴포넌트의 Wrap, Main의 설정 style css
+   -  **pages**
+      -  Home.jsx
+      -  Detail.jsx
+      -  MovieCategory.jsx ▶ 중요
+      -  NotFound.jsx
+      -  SearchResutls.jsx
+   -  **store**
+      -  store.js
+   -  **api**
+      -  tmdbApi.js
+   -  **features**
+      -  **movies** : moviesSlice.js
+      -  **tvs** : tvsSlice.js
+   -  **components**
+      -  Banner.jsx
+      -  Menu.jsx
+      -  Footer.jsx
+      -  MovieCard.jsx
+      -  **css** :
+         -  Banner.css
+         -  Menu.css
+         -  Footer.css
+         -  PosterSlider.css
+      -  **slider**
+         -  PosterSlider.jsx
+         -  TvSlider.jsx
+         -  CreditsSlider.jsx
 -
 
 설치 라이브러리
@@ -109,11 +141,14 @@ d
 
 ### Banner.jsx
 
--  MUI : Components - [TextField], [Button] 사용
+-  MUI : Components - 1. [TextField], 2.[Button] 사용
 
     <details>
     <summary>
-    <span style="font-style:italic;font-weight:bold;font-size:1.1em">Banner.jsx</span> [핵심 코드 보기]
+    [핵심 코드 보기]
+
+   **_Banner.jsx_**
+
     </summary>
     
     ```
@@ -288,7 +323,7 @@ endpoint : '/movie/popular' 부분에서 popular 부분을 교체시키기 위�
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getMovies } from '../../api/tmdbApi'
 
-// --1번 코드--
+// <<- 1번 코드 ->>
 export const fetchmovies = createAsyncThunk('movies/fetchMovies', async ({ category, page }) => {
    const response = await getMovies(category, page)
    return response.data.results
@@ -315,7 +350,7 @@ const moviesSlice = createSlice({
          .addCase(fetchMovies.rejected, (state, action) => {
             state.loading = false
 
-            // --2번 코드--
+            // <<- 2번 코드 ->>
 
             // 페이지가 1일 때
             if (action.meta.arg.page === 1) {
@@ -332,3 +367,20 @@ export default moviesSlice
 ```
 
 </details>
+
+---
+
+### MovieCategory.jsx
+
+-  1. Button 클릭시 onClick이 작동하여 {loadMore} 함수 작동
+   2. loadMore함수에서 setPage에 스프레드 문법으로 기존 데이터를 가져온 후 , [category]:prevPage[category]+1로 해당 페이지 카테고리(ex. popular)의 페이지가 증가\
+      => popular:2, now_play:1, upcoming:1
+   3. category가 증가하여서 useEffect의 deps값인 [page]가 업데이트되어 다시 작동함 ... page의 state변화 감지
+
+```
+prevPage = {
+   now_playing: 1,
+   upcoming: 1,
+   popular: 1,
+}
+```

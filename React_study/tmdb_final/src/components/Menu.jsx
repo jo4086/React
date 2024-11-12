@@ -1,4 +1,4 @@
-import '../css/Menu.css'
+import './css/Menu.css'
 import { NavLink } from 'react-router-dom'
 
 function Menu() {
