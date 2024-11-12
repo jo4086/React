@@ -7,6 +7,7 @@ import Chapter11 from './summarize/Chapter11/Chapter11'
 
 
 function App() {
+<<<<<<< Updated upstream
    return (
       // <Chpater4 />
       // <Chpater6 />
@@ -14,6 +15,10 @@ function App() {
       <Chapter11 />
       // <Chapter12 />
    )
+=======
+   console.log(React)
+   return React.createElement('div', { className: 'myClass' }, 'Hello World')
+>>>>>>> Stashed changes
 }
 
 export default App
