@@ -9,14 +9,14 @@
 -  index.js ▶ [BrowserRouter] import하고 App.js 감싸기
 
 -  폴더 구조 작성하기\
-   **_<Folder ~ file>_**
+   <**_Folder_** ~ _file_>
    -  **styles**
       -  common.css : pages 기본 css
       -  StyledComponents.js : pages 컴포넌트의 Wrap, Main의 설정 style css
    -  **pages**
       -  Home.jsx
       -  Detail.jsx
-      -  MovieCategory.jsx ▶ 중요
+      -  MovieCategory.jsx
       -  NotFound.jsx
       -  SearchResutls.jsx
    -  **store**
