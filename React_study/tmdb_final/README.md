@@ -24,9 +24,9 @@
    -  **↘ api**
       -  tmdbApi.js : api 데이터 호출\
          여기서\
-         **export const [_getMovies], [getMovieDetails], [getMovieCredits_]** →$\color{navy}{moviesSlice.js}$\
+         **export const [_getMovies], [getMovieDetails], [getMovieCredits_]** → $\color{hotpink}{moviesSlice.js}$\
          (import { getMovies, getMovieDetails, getMovieCredits } from '../../api/tmdbApi')
-         **export const [_getTVs_]** → $\color{navy}{tvsSlice.js}$
+         **export const [_getTVs_]** → $\color{hotpink}{tvsSlice.js}$
    -  **↘ features**
       -  **movies** → moviesSlice.js
       -  **tvs** → tvsSlice.js
