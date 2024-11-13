@@ -439,6 +439,8 @@ export default moviesSlice
 
    ! useEffect는 컴포넌트 첫 렌더링시 무조건 1번은 실행함.
    !
+   @@ text in yellow (and bold)@@
+   @@ text in purple (and bold)@@
    ```
 
 useEffect api 중복호출 설명 이미지
