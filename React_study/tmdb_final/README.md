@@ -25,10 +25,10 @@
    -  **↘ api**
 
       -  tmdbApi.js : api 데이터 호출
-         > $\textsf{\color{forestgreen}{export}}$ const $\textsf{\color{gray}{[getMovies], [getMovieDetails], [getMovieCredits] ...}}$ **→** ${\textsf{\color{hotpink}{moviesSlice.js}}}$\
+         > $\textsf{\color{forestgreen}{export}}$ const $\textsf{\color{black}{[getMovies], [getMovieDetails], [getMovieCredits] ...}}$ **→** ${\textsf{\color{hotpink}{moviesSlice.js}}}$\
          >  ㄴ $\textsf{\color{green}{import}}$ ｛ getMovies, getMovieDetails, getMovieCredits ｝$\textsf{\color{green}{from}}$ '../../api/tmdbApi'
          >
-         > $\textsf{\color{forestgreen}{export}}$ const $\textsf{\color{gray}[{getTVs ...]}}$ **→** **${\textsf{\color{hotpink}{tvsSlice.js}}}$**\
+         > $\textsf{\color{forestgreen}{export}}$ const $\textsf{\color{black}[{getTVs ...]}}$ **→** **${\textsf{\color{hotpink}{tvsSlice.js}}}$**\
          >  ㄴ $\textsf{\color{green}{import}}$｛ getTVs ｝$\textsf{\color{green}{from}}$ '../../api/tmdbApi'
 
    -  **↘ features**
