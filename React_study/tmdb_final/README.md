@@ -10,6 +10,7 @@
 
 -  폴더 구조 작성하기\
    <**_Folder_** ~ _file_>
+
    -  **↘ styles**
       -  common.css : pages 기본 css
       -  StyledComponents.js : pages 컴포넌트의 Wrap, Main의 설정 style css
@@ -22,12 +23,19 @@
    -  **↘ store**
       -  store.js
    -  **↘ api**
+
       -  tmdbApi.js : api 데이터 호출\
-         $\textsf{\color{red}{export}}$ const $\textsf{\color{yellowgreen}{[getMovies], [getMovieDetails], [getMovieCredits] ...}}$ **→** **${\textsf{\color{hotpink}{moviesSlice.js}}}$**\
-         : $\textsf{\color{green}{import}}$ ｛ getMovies, getMovieDetails, getMovieCredits ｝$\textsf{\color{green}{from}}$ '../../api/tmdbApi'\
-         \
-         $\textsf{\color{red}{export}}$ const $\textsf{\color{yellowgreen}{getTVs ...}}$ **→** **${\textsf{\color{hotpink}{tvsSlice.js}}}$**\
-         : $\textsf{\color{green}{import}}$｛ getTVs ｝$\textsf{\color{green}{from}}$ '../../api/tmdbApi'
+
+         > ***
+         >
+         > $\textsf{\color{red}{export}}$ const $\textsf{\color{yellowgreen}{[getMovies], [getMovieDetails], [getMovieCredits] ...}}$ **→** ${\textsf{\color{hotpink}{moviesSlice.js}}}$\
+         >  ㄴ $\textsf{\color{green}{import}}$ ｛ getMovies, getMovieDetails, getMovieCredits ｝$\textsf{\color{green}{from}}$ '../../api/tmdbApi'
+         >
+         > $\textsf{\color{red}{export}}$ const $\textsf{\color{yellowgreen}{getTVs ...}}$ **→** **${\textsf{\color{hotpink}{tvsSlice.js}}}$**\
+         >  ㄴ $\textsf{\color{green}{import}}$｛ getTVs ｝$\textsf{\color{green}{from}}$ '../../api/tmdbApi'
+         >
+         > ***
+
    -  **↘ features**
       -  **movies** → moviesSlice.js
       -  **tvs** → tvsSlice.js
@@ -45,6 +53,7 @@
          -  PosterSlider.jsx
          -  TvSlider.jsx
          -  CreditsSlider.jsx
+
 -
 
 설치 라이브러리
