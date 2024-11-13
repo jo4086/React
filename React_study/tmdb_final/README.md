@@ -469,3 +469,22 @@ prevPage = {
    popular: 1,
 }
 ```
+
+```json
++   // 색칠을 위한 코드
+hi //ㅇㅇ
+```
+
+```html
+// 색칠을 위한 코드
+```
+
+```js
+// 색칠을 위한 코드
+```
+
+```css
+// 색칠을 위한 코드
+```
+
+<span style="color:orange">example orange span</span>
