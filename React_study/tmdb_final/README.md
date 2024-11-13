@@ -24,17 +24,12 @@
       -  store.js
    -  **↘ api**
 
-      -  tmdbApi.js : api 데이터 호출\
-
-         > ***
-         >
+      -  tmdbApi.js : api 데이터 호출
          > $\textsf{\color{red}{export}}$ const $\textsf{\color{yellowgreen}{[getMovies], [getMovieDetails], [getMovieCredits] ...}}$ **→** ${\textsf{\color{hotpink}{moviesSlice.js}}}$\
          >  ㄴ $\textsf{\color{green}{import}}$ ｛ getMovies, getMovieDetails, getMovieCredits ｝$\textsf{\color{green}{from}}$ '../../api/tmdbApi'
          >
          > $\textsf{\color{red}{export}}$ const $\textsf{\color{yellowgreen}{getTVs ...}}$ **→** **${\textsf{\color{hotpink}{tvsSlice.js}}}$**\
          >  ㄴ $\textsf{\color{green}{import}}$｛ getTVs ｝$\textsf{\color{green}{from}}$ '../../api/tmdbApi'
-         >
-         > ***
 
    -  **↘ features**
       -  **movies** → moviesSlice.js
