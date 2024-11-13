@@ -475,7 +475,7 @@ prevPage = {
 hi //ㅇㅇ
 ```
 
-```html
+```js
 // 색칠을 위한 코드
 ```
 
@@ -489,4 +489,9 @@ hi //ㅇㅇ
 
 <span style="color:orange">example orange span</span>
 
-<mark>형광</mark>
+<mark><u>형광<\u></mark>
+
+~~취소선~~
+<u>밑줄</u>
+
+<span style="color:red;">your text here > </span>
