@@ -31,7 +31,7 @@
          > $\textsf{\color{forestgreen}{export}}$ const $\textsf{\color{black}[{getTVs ...]}}$ **→** **${\textsf{\color{hotpink}{tvsSlice.js}}}$**\
          >  ㄴ $\textsf{\color{green}{import}}$｛ getTVs ｝$\textsf{\color{green}{from}}$ '../../api/tmdbApi'
 
-   -  **↘ features** : $\textsf{\color{teal}{createSlice}}$를 이용하여 store에 보낼 $\textsf{\color{orange}{reducer}}$ 생성
+   -  **↘ features** : $\textsf{\color{teal}{createSlice}}$를 이용하여 store에 보낼 $\textsf{\color{darkorange}{reducer}}$ 생성
       -  **movies** → moviesSlice.js
       -  **tvs** → tvsSlice.js
    -  **↘ components**
