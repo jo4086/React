@@ -407,10 +407,11 @@ export default moviesSlice
    5. dispatch 의존성 배열 경고 무시하는법\
       => 주석에 // eslint-disable-next-line react-hooks/exhaustive-deps 추가하기
 
-   ```
-   const isFirstLoad = useRef(true)
+   ```diff
+   + const isFirstLoad = useRef(true)
 
-   // << 개전 전 코드 >>
+   ! 1. useEffect
+   - // << 개전 전 코드 >>
    useEffect(() => {
       setPage((prevPage) => ({
          ...prevPage,
@@ -418,18 +419,26 @@ export default moviesSlice
       }))
    }, [category])
 
-   // << 개선 후 코드 >>
+   + // << 개선 후 코드 >>
    useEffect(() => {
-      if (isFirstLoad.current) {
-         isFirstLoad.current =false
-         return
-      }
+   +  if (isFirstLoad.current) {
+   +     isFirstLoad.current =false
+   +     return
+   +  }
       setPage((prevPage) => ({
          ...prevPage,
          [category]: 1,
       }))
    },[category])
 
+   ! 2. useEffect
+   useEffect(() => {
+      console.log({category, page:page[category]})
+      dispatch(fetchMovies({category, page:page[category] }))
+   }, [dispatch, page])
+
+   ! useEffect는 컴포넌트 첫 렌더링시 무조건 1번은 실행함.
+   !
    ```
 
 useEffect api 중복호출 설명 이미지
