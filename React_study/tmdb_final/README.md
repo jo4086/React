@@ -379,7 +379,19 @@ export default moviesSlice
 
 ---
 
-### $\textbf{\textsf{\color{navy}{MovieCategory.jsx}}}$
+## $\textbf{\textsf{\color{navy}{MovieCategory.jsx}}}$
+
+![#1589F0](https://placehold.co/15x15/1589F0/1589F0.png) `컬러`
+
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+
+@@ text in purple (and bold)@@
+
+```
 
 -  1. Button 클릭시 onClick이 작동하여 {loadMore} 함수 작동
    2. loadMore함수에서 setPage에 스프레드 문법으로 기존 데이터를 가져온 후 , [category]:prevPage[category]+1로 해당 페이지 카테고리(ex. popular)의 페이지가 증가\
