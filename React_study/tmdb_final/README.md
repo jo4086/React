@@ -379,12 +379,65 @@ export default moviesSlice
 
 ---
 
-### MovieCategory.jsx
+### $\textbf{\textsf{\color{navy}{MovieCategory.jsx}}}$
 
 -  1. Button 클릭시 onClick이 작동하여 {loadMore} 함수 작동
    2. loadMore함수에서 setPage에 스프레드 문법으로 기존 데이터를 가져온 후 , [category]:prevPage[category]+1로 해당 페이지 카테고리(ex. popular)의 페이지가 증가\
       => popular:2, now_play:1, upcoming:1
    3. category가 증가하여서 useEffect의 deps값인 [page]가 업데이트되어 다시 작동함 ... page의 state변화 감지
+   4. 페이지 첫 로드와 로드시 카테고리 업데이트로 인해 2번 로딩이 문제가 있음\
+      => useRef를 사용하여 문제 해결
+
+      > useState: 값이 바뀔 때마다 리렌더링 발생\
+      > useRef: 값이 바뀌더라도 리렌더링이 발생X\
+      > ㄴ> Why?? useRef의 객체 참조 특징 때문,, useRef는 하나의 객체 안에서 .current를 통해 데이터 관리
+
+   5. dispatch 의존성 배열 경고 무시하는법\
+      => 주석에 // eslint-disable-next-line react-hooks/exhaustive-deps 추가하기
+
+   ```
+   const isFirstLoad = useRef(true)
+
+   // << 개전 전 코드 >>
+   useEffect(() => {
+      setPage((prevPage) => ({
+         ...prevPage,
+         [category]: 1,
+      }))
+   }, [category])
+
+   // << 개선 후 코드 >>
+   useEffect(() => {
+      if (isFirstLoad.current) {
+         isFirstLoad.current =false
+         return
+      }
+      setPage((prevPage) => ({
+         ...prevPage,
+         [category]: 1,
+      }))
+   },[category])
+
+   ```
+
+useEffect api 중복호출 설명 이미지
+
+useEffect는 해당 컴포넌트 실행시 무조건 1번은 실행된다.\
+이로 인해 2개의 useEffect가 실행되는데\
+첫번째 useEffect의 setPage에 의해 useState의 page값이 새로 써지게된다.\
+두번째 useEffect는 deps로 [page]를 주었기에 첫번째 useEffect에 의해 1번 더 작동하게되어 첫번째 이미지처럼 첫 페이지를 2번 호출하게되는 경우가 발생하게 된다.\
+이를 해결하기 위해 useRef(true)를 사용하여 컴포넌트 첫 렌더링 작동시 첫번째 useEffect는 if문에 의해 return되어 아래 코드는 작동하지 않아 setPage에의한 page수정이 없게되어\
+두번째 useEffect의 초기작동 1번만 작동하여 1번만 호출하게 한다.
+
+<details>
+<summary>
+$\textsf{\color{darkorange}{이미지보기}}$
+</summary>
+
+![](./md_image/2024-11-13-15-34-15.png)
+![](./md_image/2024-11-13-15-19-45.png)
+
+</details>
 
 ```
 prevPage = {

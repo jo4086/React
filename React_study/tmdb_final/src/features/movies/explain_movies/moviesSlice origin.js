@@ -28,33 +28,34 @@ export const fetchSearchResults = createAsyncThunk('movies/fetchSearchResults', 
 const moviesSlice = createSlice({
    name: 'movies',
    initialState: {
-      loading: false,
-      movies: [],
+      loading: false, 
+      movies: [], 
       movieDetails: null,
       movieCredtis: null,
-      searchResults: [],
-      error: null,
+      searchResults: [], 
+      error: null, 
    },
    reducers: {},
    extraReducers: (builder) => {
       builder
          // fetchMovies
          .addCase(fetchMovies.pending, (state) => {
-            state.loading = true
+            state.loading = true 
             state.error = null
          })
          .addCase(fetchMovies.fulfilled, (state, action) => {
             state.loading = false
-
+     
             if (action.meta.arg.page === 1) {
                state.movies = action.payload
             } else {
+              
                state.movies = [...state.movies, ...action.payload]
             }
          })
          .addCase(fetchMovies.rejected, (state, action) => {
             state.loading = false
-            state.error = action.error.message
+            state.error = action.error.message 
          })
 
          // fetchMovieDetails

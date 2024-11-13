@@ -18,7 +18,7 @@ function App() {
 
          <Route element={<Detail />} path="/detail/:movieId" />
          <Route element={<SearchResults />} path="/search" />
-         <Route element={<NotFound />} path="/" />
+         <Route element={<NotFound />} path="/*" />
 
          {/* 
           <Route element={<MovieCategory category="upcoming" />} path="/upcoming" />

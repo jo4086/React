@@ -57,12 +57,14 @@ export const getTVs = (type, page = 1) => {
    })
 }
 
-// 영화 상세 정보 가져오기
+//영화 상세 정보 가져오기
 export const getMovieDetails = (movieId) => {
-   return fetchFromApi(`/movie/${movieId}`, { language: 'ko-KR' })
+   return fetchFromApi(`/movie/${movieId}`, {
+      language: 'ko-KR'
+   })
 }
 
-// 출연 배우 정보 가져오기
+//출연 배우 정보 가져오기
 export const getMovieCredits = (movieId) => {
    return fetchFromApi(`/movie/${movieId}/credits`, {
       language: 'ko-KR',
