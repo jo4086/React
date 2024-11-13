@@ -439,7 +439,7 @@ export default moviesSlice
    }, [dispatch, page])
 
    ! useEffect는 컴포넌트 첫 렌더링시 무조건 1번은 실행함.
-   !
+   ! [2. useEffect]에서 
    @@ text in yellow (and bold)@@
    @@ text in purple (and bold)@@
    ```
@@ -488,11 +488,9 @@ hi //ㅇㅇ
 // 색칠을 위한 코드
 ```
 
-<span style="color:orange">example orange span</span>
 
-<mark><u>형광<\u></mark>
+<mark><u>형광</u></mark>
 
 ~~취소선~~
 <u>밑줄</u>
 
-<span style="color:red;">your text here > </span>

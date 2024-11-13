@@ -2,7 +2,8 @@ import axios from 'axios'
 
 // TMDB API 기본 URL과 API 키 설정
 const BASE_URL = 'https://api.themoviedb.org/3'
-const AUTH_KEY = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZjRkOWI5ZTUwZjA1MDg4OWU5OGU0Mzk4ODlkODNlMCIsIm5iZiI6MTczMTI4Njc5MC4xNzAyNDA5LCJzdWIiOiI2NzFhZTk0NzQ1NDJlMzcxZmUwYTZhZTkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.28rsQnWHW-cix-LHrNnfgEPLp0mmq7-zyfg-hrr4MvI'
+const AUTH_KEY = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZjRkOWI5ZTUwZjA1MDg4OWU5OGU0Mzk4ODlkODNlMCIsIm5iZiI6MTczMTQ4OTI0MS4wOTg5OTIsInN1YiI6IjY3MWFlOTQ3NDU0MmUzNzFmZTBhNmFlOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8QFFQoHvV-Mq06JbcQL47O1XIfQqJ9m_oqo7NwexqnQ'
+
 
 // api call을 준비하기 위한 axios 객체 생성
 const tmdbApi = axios.create({

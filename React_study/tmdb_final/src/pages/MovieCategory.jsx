@@ -22,7 +22,11 @@ function MovieCategory({ category }) {
    const isFirstLoad = useRef(true)
 
    useEffect(() => {
-      console.log('%c 1번 useEffect: ','font-weight:bold;', category)
+      if (isFirstLoad.current) {
+         isFirstLoad.current = false
+         return
+      }
+      // console.log('%c 1번 useEffect: ', 'font-weight:bold;', category)
 
       setPage((prevPage) => ({
          ...prevPage,
@@ -31,24 +35,25 @@ function MovieCategory({ category }) {
    }, [category])
 
    useEffect(() => {
-      // console.log('2번 useEffect: ', { category, page: page[category] })
-      console.group('2번 useEffect 호출 수:')
-      console.count('호출횟수')
-      console.log({category, page:page[category]})
-      console.groupEnd()
+      console.log({ category, page: page[category] })
       dispatch(fetchMovies({ category, page: page[category] }))
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [dispatch, page])
 
    const loadMore = useCallback(() => {
-      setPage(
-         (prevPage) => ({
-            ...prevPage,
-            [category]: prevPage[category] + 1,
-         }),
-         [category]
-      )
+      setPage((prevPage) => ({
+         ...prevPage,
+         [category]: prevPage[category] + 1,
+      }))
    }, [category])
+   /*       setPage(
+            (prevPage) => ({
+               ...prevPage,
+               [category]: prevPage[category] + 1,
+            }),
+            [category]
+         )
+      }, [category]) */
 
    if (loading && page === 1)
       return (
