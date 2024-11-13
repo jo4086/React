@@ -10,33 +10,37 @@
 
 -  폴더 구조 작성하기\
    <**_Folder_** ~ _file_>
-   -  **styles**
+   -  **↘ styles**
       -  common.css : pages 기본 css
       -  StyledComponents.js : pages 컴포넌트의 Wrap, Main의 설정 style css
-   -  **pages**
-      -  Home.jsx
-      -  Detail.jsx
-      -  MovieCategory.jsx
-      -  NotFound.jsx
-      -  SearchResutls.jsx
-   -  **store**
+   -  **↘ pages**
+      -  Home.jsx : 기본 홈페이지
+      -  Detail.jsx : 영화 상세 페이지
+      -  MovieCategory.jsx : 네비바 카테고리 링크
+      -  NotFound.jsx : 경로 실패 페이지
+      -  SearchResutls.jsx : 영화 검색 페이지
+   -  **↘ store**
       -  store.js
-   -  **api**
-      -  tmdbApi.js
-   -  **features**
-      -  **movies** : moviesSlice.js
-      -  **tvs** : tvsSlice.js
-   -  **components**
+   -  **↘ api**
+      -  tmdbApi.js : api 데이터 호출\
+         여기서\
+         **export const [_getMovies], [getMovieDetails], [getMovieCredits_]** →$\color{navy}{moviesSlice.js}$\
+         (import { getMovies, getMovieDetails, getMovieCredits } from '../../api/tmdbApi')
+         **export const [_getTVs_]** → $\color{navy}{tvsSlice.js}$
+   -  **↘ features**
+      -  **movies** → moviesSlice.js
+      -  **tvs** → tvsSlice.js
+   -  **↘ components**
       -  Banner.jsx
       -  Menu.jsx
       -  Footer.jsx
       -  MovieCard.jsx
-      -  **css** :
+      -  **↘ css**
          -  Banner.css
          -  Menu.css
          -  Footer.css
          -  PosterSlider.css
-      -  **slider**
+      -  **↘ slider**
          -  PosterSlider.jsx
          -  TvSlider.jsx
          -  CreditsSlider.jsx
