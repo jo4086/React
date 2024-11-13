@@ -388,6 +388,7 @@ export default moviesSlice
 + text in green
 ! text in orange
 # text in gray
++ green
 
 @@ text in purple (and bold)@@
 
