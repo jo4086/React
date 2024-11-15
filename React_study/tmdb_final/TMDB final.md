@@ -31,13 +31,15 @@
 
    npm install @emotion/react @emotion/styled
 
-   npm install axios
-
-   npm install react-router-dom
-
    npm install styled-components
 
    npm install swiper
+
+   // API 라이브러리
+   npm install axios
+
+   // 링크 라이브러리
+   npm install react-router-dom
    ```
 
 </details>
